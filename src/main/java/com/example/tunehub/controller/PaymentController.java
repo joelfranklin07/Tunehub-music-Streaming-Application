@@ -5,13 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.example.tunehub.entities.users;
 import com.example.tunehub.services.UsersService;
 import com.razorpay.Order;
 import com.razorpay.RazorpayClient;
 import com.razorpay.RazorpayException;
+import com.razorpay.Utils;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -23,6 +24,19 @@ public class PaymentController {
 	@GetMapping("/pay")
 	public String pay() {
 		return "pay";
+	}
+	@GetMapping("/payment-success")
+	public String paymentSuccess(HttpSession session) {
+		String mail =  (String) session.getAttribute("email");
+		users u = service.getUser(mail);
+		u.setIspremium(true);
+		service.updateuser(u);
+		return "customerHome";
+	}
+	
+	@GetMapping("/payment-failure")
+	public String paymentFailure() {
+		return "customerHome";
 	}
 
 	@SuppressWarnings("finally")
@@ -55,5 +69,22 @@ public class PaymentController {
 			return order.toString();
 		}
 	}
-	
+	@PostMapping("/verify")
+	@ResponseBody
+	public boolean verifyPayment(@RequestParam  String orderId, @RequestParam String paymentId, @RequestParam String signature) {
+	    try {
+	        // Initialize Razorpay client with your API key and secret
+	        RazorpayClient razorpayClient = new RazorpayClient("rzp_test_iuOpHzuVSW3mVc", "z3MdYbaqpwLHJLAPwr89nRoP");
+	        // Create a signature verification data string
+	        String verificationData = orderId + "|" + paymentId;
+
+	        // Use Razorpay's utility function to verify the signature
+	        boolean isValidSignature = Utils.verifySignature(verificationData, signature, "z3MdYbaqpwLHJLAPwr89nRoP");
+
+	        return isValidSignature;
+	    } catch (RazorpayException e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
 }
