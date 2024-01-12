@@ -1,0 +1,39 @@
+
+body {
+	background-image: url('/images/admin2.jpg');
+	background-repeat: no-repeat;
+  	background-size: 100% 1000%;
+}
+.h1div 
+{
+	background-color:black;
+	opacity:80%;
+	align-items:center;
+	width:inherit;
+	color:white;
+text-align: center;
+}
+a:link{
+	font-size:20px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.container {
+	
+	background: rgba(0, 0, 0, 0.4);
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  width:60%;
+  padding:10px;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  gap:15px;
+}

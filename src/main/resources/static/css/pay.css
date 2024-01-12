@@ -1,0 +1,57 @@
+body {
+	background-image: url('/images/register.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+.container {
+	gap: 25px;
+	width: 400px;
+	height: 500px;
+	margin: auto;;
+	color: white;
+	background: rgba(225, 225, 225, 0.4);
+	padding: 20px;;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+button {
+	background-color: #04AA6D; /* Green */
+	border: none;
+	color: white;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.buy-button {
+	background-color: #008CBA;
+	color: black;
+	border: 2px solid black;
+}
+
+.buy-button:hover {
+	background-color: #008CBA;
+	color: white;
+}
+
+.a {
+	margin-left: 30px;
+	padding: 25px;
+	color: black;
+	list-style-type: square;
+}
