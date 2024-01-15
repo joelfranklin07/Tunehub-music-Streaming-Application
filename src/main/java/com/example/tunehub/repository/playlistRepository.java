@@ -6,6 +6,6 @@ import com.example.tunehub.entities.playlist;
 
 public interface playlistRepository extends JpaRepository<playlist, Integer> 
 {
-	public playlist save(playlist playlist);
+	
 	
 }

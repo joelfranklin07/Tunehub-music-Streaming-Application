@@ -1,7 +1,7 @@
 body{
 	background-image: url('/images/customer.jpg');
 	background-repeat: no-repeat;
-  	background-size: cover;
+  	background-size: 100% cover;
   	margin: 0;
 	width: 100vw;
 	height: 100vh;
@@ -24,7 +24,7 @@ a:link{
     text-decoration: none;
     display: inline-block;
 }
-.container {
+.non-premium {
 	
 	background: rgba(224, 224, 224, 0.2);
 display: flex;
@@ -38,4 +38,24 @@ display: flex;
   transform: translate(-50%, -50%);
   position: absolute;
   gap:30px;
+}
+.premium{
+	color:white;
+	width: 100px;
+	margin-left:400px;
+	padding: 20px;
+  	justify-content: center;
+  	align-items: center;
+  	position: absolute;
+}
+td{
+	background-color: rgb(112,128,144);
+}
+th,td{
+	padding:15px;
+	
+}
+tr:hover {background-color: rgb(112,128,144);}
+th{
+	background-color:rgb(102,0,51); 
 }

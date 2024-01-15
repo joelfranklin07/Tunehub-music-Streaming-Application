@@ -76,10 +76,10 @@ public class users
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public boolean isIspremium() {
+	public boolean ispremium() {
 		return ispremium;
 	}
-	public void setIspremium(boolean ispremium) {
+	public void setpremium(boolean ispremium) {
 		this.ispremium = ispremium;
 	}
 	@Override
@@ -87,5 +87,7 @@ public class users
 		return "users [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
 				+ ", gender=" + gender + ", role=" + role + ", address=" + address + ", ispremium=" + ispremium + "]";
 	}
+	
+
 	
 }

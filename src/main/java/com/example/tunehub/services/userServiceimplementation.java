@@ -2,6 +2,7 @@ package com.example.tunehub.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.example.tunehub.entities.users;
 import com.example.tunehub.repository.UserRepository;
 
@@ -27,6 +28,7 @@ public  class userServiceimplementation implements UsersService{
 			return true;
 		}
 	}
+	@Override
 	public boolean validateUser(String email,String password)
 	{
 		users user=repo.findByEmail(email);
@@ -53,11 +55,8 @@ public  class userServiceimplementation implements UsersService{
 		
 	}
 	@Override
-	public users getUser(String mail) {
-		// TODO Auto-generated method stub
-		return null;
+	public users getUser(String email) {
+		
+		return repo.findByEmail(email);
 	}
-	
-	
-
 }

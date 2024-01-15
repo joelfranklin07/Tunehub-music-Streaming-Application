@@ -23,7 +23,7 @@ public class songcontroller
 		}
 		else
 		{
-			System.out.println("song name already exists");
+			System.out.println("song  already exists");
 		}
 		return "adminhome";
 	}	

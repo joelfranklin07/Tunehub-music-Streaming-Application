@@ -9,9 +9,9 @@ public interface UsersService {
 
 	public boolean validateUser(String email,String password);
 
-	public void updateuser(users user);
-
 	public String getRole(String email);
+	
+	public void updateuser(users user);
 
 	public users getUser(String mail);
 

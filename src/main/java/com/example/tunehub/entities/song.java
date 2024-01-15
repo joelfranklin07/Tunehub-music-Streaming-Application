@@ -103,10 +103,5 @@ public class song
 				+ ", playlists="  + "]";
 	}
 
-
-	public List<song> getPlaylist() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
