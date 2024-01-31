@@ -3,12 +3,11 @@ package com.example.tunehub.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.example.tunehub.entities.Logindata;
 import com.example.tunehub.entities.song;
 import com.example.tunehub.entities.users;
@@ -16,10 +15,8 @@ import com.example.tunehub.services.Songservice;
 import com.example.tunehub.services.UsersService;
 import jakarta.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-@CrossOrigin("*")
-@RestController
+@Controller
 public class usrecontroller 
 {
 	@Autowired
