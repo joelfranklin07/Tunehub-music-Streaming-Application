@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import com.example.tunehub.entities.Logindata;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.example.tunehub.entities.song;
 import com.example.tunehub.entities.users;
 import com.example.tunehub.services.Songservice;
@@ -38,12 +38,8 @@ public class usrecontroller
 		return "login";
 	}
 	@PostMapping("/validate")
-	public String validate(@RequestBody Logindata data,HttpSession session,Model model) 
-	{	
-		System.out.println("call recived");
-		
-		String email=data.getEmail();
-		String password=data.getPassword();
+	public String validate(@RequestParam("email")String email,@RequestParam("password")String password,HttpSession session,Model model) 
+	{
 		if(service.validateUser(email,password) == true) {
 			String role = service.getRole(email);
 			
