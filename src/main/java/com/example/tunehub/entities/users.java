@@ -1,10 +1,13 @@
 package com.example.tunehub.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 @Entity
+@Table(name="users")
 public class users 
 {
 	@Id
@@ -18,12 +21,16 @@ public class users
 	String address;
 	
 	boolean ispremium;
-	public users() {
-		super();
-		// TODO Auto-generated constructor stub
+	String reset_password;
+	public users() 
+	{
+		super();	
 	}
+	@Column(insertable=false, updatable=false)
+	private String resetpassword;
 	public users(int id, String username, String email, String password, String gender, String role, String address,
-			boolean ispremium) {
+			String reset_password, boolean ispremium)
+	{
 		super();
 		this.id = id;
 		this.username = username;
@@ -32,6 +39,7 @@ public class users
 		this.gender = gender;
 		this.role = role;
 		this.address = address;
+		this.reset_password = reset_password;
 		this.ispremium = ispremium;
 	}
 	public int getId() {
@@ -76,16 +84,27 @@ public class users
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public boolean ispremium() {
+	public String getReset_password() {
+		return reset_password;
+	}
+	public void setReset_password(String reset_password) {
+		this.reset_password = reset_password;
+	}
+	public boolean isIspremium() {
 		return ispremium;
 	}
-	public void setpremium(boolean ispremium) {
+	public void setIspremium(boolean ispremium) {
 		this.ispremium = ispremium;
 	}
 	@Override
 	public String toString() {
 		return "users [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
-				+ ", gender=" + gender + ", role=" + role + ", address=" + address + ", ispremium=" + ispremium + "]";
+				+ ", gender=" + gender + ", role=" + role + ", address=" + address + ", reset_password="
+				+ reset_password + ", ispremium=" + ispremium + "]";
+	}
+	public void setResetPasswordToken(String token) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

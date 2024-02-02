@@ -50,7 +50,7 @@ public class usrecontroller
 			}
 			else {
 				users user=service.getUser(email);
-				boolean userstatus=user.ispremium();
+				boolean userstatus=user.isIspremium();
 				List<song>songlist=songservice.fetchAllSongs();
 				model.addAttribute("songs", songlist);
 				model.addAttribute("ispremium", userstatus);

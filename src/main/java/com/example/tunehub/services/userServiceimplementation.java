@@ -10,6 +10,33 @@ import com.example.tunehub.repository.UserRepository;
 public  class userServiceimplementation implements UsersService{
 	@Autowired
 	UserRepository repo;
+	
+	
+	 public void updateResetPasswordToken(String token, String email) throws usersNotFoundException {
+	        users u = repo.findByEmail(email);
+	        if (u != null) {
+	            u.setResetPasswordToken(token);
+	            repo.save(u);
+	        } else {
+	            throw new usersNotFoundException("Could not find any customer with the email " + email);
+	        }
+	    }
+	     
+	    public users getByResetPasswordToken(String token) {
+	        return repo.findByResetPasswordToken(token);
+	    }
+	     
+	    public void updatePassword(users user, String newPassword) {
+	        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	        String encodedPassword = passwordEncoder.encode(newPassword);
+	        user.setPassword(encodedPassword);
+	         
+	        user.setResetPasswordToken(null);
+	        repo.save(user);
+	    }
+	    
+	    
+	    
 	@Override
 	public String addUser(users user)
 	{

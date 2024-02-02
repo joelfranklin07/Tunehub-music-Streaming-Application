@@ -15,5 +15,7 @@ public interface UsersService {
 
 	public users getUser(String mail);
 
+	public void updateResetPasswordToken(String token, String email) throws usersNotFoundException;
+
 	
 }

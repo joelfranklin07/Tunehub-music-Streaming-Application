@@ -29,7 +29,7 @@ public class PaymentController {
 	public String paymentSuccess(HttpSession session) {
 		String mail =  (String) session.getAttribute("email");
 		users u = service.getUser(mail);
-		u.setpremium(true);
+		u.setIspremium(true);
 		service.updateuser(u);
 		return "customerHome";
 	}
@@ -59,7 +59,7 @@ public class PaymentController {
 			String mail =  (String) session.getAttribute("email");
 
 			users u = service.getUser(mail);
-			u.setpremium(true);
+			u.setIspremium(true);
 			service.updateuser(u);
 
 		} catch (RazorpayException e) {
